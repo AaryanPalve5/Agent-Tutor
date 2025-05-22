@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Mentor Agent Tutor Bot</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Mentor Agent Tutor Bot</h1>
-        <form method="post">
-            <label for="question">Ask your question:</label>
-            <input type="text" name="question" id="question" required>
-            <button type="submit">Ask</button>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center text-blue-900 mb-4">Mentor Agent Tutor Bot</h1>
+        <form method="post" class="space-y-4">
+            <div>
+                <label for="question" class="block font-medium text-blue-900 mb-1">Ask your question:</label>
+                <input type="text" name="question" id="question" required
+                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+            </div>
+            <button type="submit"
+                class="w-full py-2 bg-blue-800 hover:bg-blue-700 text-white font-bold rounded-lg transition">Ask</button>
         </form>
         {% if answer %}
-        <div class="answer">
-            <strong>Detected Subject:</strong> {{ subject|capitalize if subject else "Unknown" }}<br>
-            <strong>Answer:</strong>
-            <p>{{ answer }}</p>
+        <div class="mt-6 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg text-blue-900">
+            <div class="font-semibold mb-1">Detected Subject:
+                <span class="font-normal">
+                    {{ subject|capitalize if subject else "Unknown" }}
+                </span>
+            </div>
+            <div>
+    <span class="font-semibold">Answer:</span>
+    <div class="mt-1 prose max-w-none">{{ answer|safe }}</div>
+</div>
+
         </div>
         {% endif %}
     </div>
