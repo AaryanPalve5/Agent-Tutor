@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Agent Tutor Bot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mentor Agent Tutor Bot</h1>
+        <form method="post">
+            <label for="question">Ask your question:</label>
+            <input type="text" name="question" id="question" required>
+            <button type="submit">Ask</button>
+        </form>
+        {% if answer %}
+        <div class="answer">
+            <strong>Detected Subject:</strong> {{ subject|capitalize if subject else "Unknown" }}<br>
+            <strong>Answer:</strong>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

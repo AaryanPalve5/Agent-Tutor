@@ -1,0 +1,6 @@
+flask
+requests
+python-dotenv
+langchain
+google-generativeai
+langchain-community
